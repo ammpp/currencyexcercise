@@ -22,3 +22,19 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Predis\Client:
+        arguments:
+            - {
+                  host: '%env(REDIS_HOST)%',
+                  port: '%env(int:REDIS_PORT)%',
+                  password: '%env(REDIS_PASSWORD)%'
+              }
+
+    App\Service\ExchangeCache:
+        arguments:
+            $ttl: '%env(REDIS_TTL)%'
+
+    App\Service\ApiClient:
+        arguments:
+            $apiKey: '%env(API_KEY)%'
