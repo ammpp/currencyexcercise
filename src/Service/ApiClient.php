@@ -6,8 +6,7 @@ use Symfony\Contracts\Cache\CacheInterface;
 
 class ApiClient
 {
-	//const API_DOMAIN = 'https://api.exchangeratesapi.io/v1/';
-	const API_DOMAIN = 'http://adam.sstore.pl/exchangeratesapi/';
+	const API_DOMAIN = 'http://api.exchangeratesapi.io/v1/';
 
 	private HttpClientInterface $client;
 	private CacheInterface $fileCache;
